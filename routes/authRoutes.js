@@ -3,7 +3,7 @@ import {auth} from "../middleware/auth"
 import {authenticated,
         register,
         login,
-        logout} from "../controllers/usercontroller"
+        logout} from "../controllers/authcontroller"
 const router = express.Router()
 
 router.post('/register',register)

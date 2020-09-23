@@ -3,22 +3,25 @@ import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import moment from "moment"
 import keys from "../config/keys"
+import uniqueValidator from "mongoose-unique-validator"
 
 const saltRounds= 10
 
 const userSchema = mongoose.Schema({
     name: {
         type: String,
-        maxlength:50
+        maxlength:50,
+        required:true
     },
     email:{
         type: String,
         trim: true,
-        unique: true
+        unique:true
     },
     password:{
         type: String,
-        minlength: 6
+        minlength: 6,
+        required:true
     },
     lastname:{
         type: String,
@@ -31,7 +34,7 @@ const userSchema = mongoose.Schema({
         type: Number
     }
 })
-
+userSchema.plugin(uniqueValidator)
 userSchema.pre('save', function( next ) {
     var user = this;
     
