@@ -7,6 +7,8 @@ import LoginPage from "./Pages/LoginPage/LoginPage.js";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage.js";
 import NavBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer"
+import AddProduct from "./Pages/Add ProductPage/AddProduct"
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/addproduct" component={Auth(AddProduct, true)} />
          
         </Switch>
       </div>

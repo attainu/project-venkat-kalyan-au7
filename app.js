@@ -19,10 +19,22 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cookie())
 
+app.use('/uploads', express.static('uploads'));
+
+
+
 
 app.use("/api/users",userRoutes)
-app.use("api/product",productRoutes)
+app.use("/api/product",productRoutes);
 app.use("api/customer",customerRoutes)
+
+
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static('client/build'))
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", 'index.html'))
+    })
+}
 
 
 
