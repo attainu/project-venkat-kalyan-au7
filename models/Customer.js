@@ -1,13 +1,12 @@
+
+
 import mongoose from "mongoose"
 
 const Schema = mongoose.Schema;
-const uniqueValidator = require('mongoose-unique-validator')
+import uniqueValidator from "mongoose-unique-validator"
 
 const customerSchema = mongoose.Schema({
-    writer: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
+   
     name:{
         type: String
     },
