@@ -1,4 +1,3 @@
-  
 import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Auth from "./hoc/auth";
@@ -10,6 +9,7 @@ import NavBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer"
 import AddProduct from "./Pages/Add ProductPage/AddProduct"
 import AddCustomer from "./Pages/Add Customer/AddCustomer"
+import Bill from "./Pages/BillingPage/Bill"
 
 
 
@@ -24,6 +24,7 @@ function App() {
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/addproduct" component={Auth(AddProduct, true)} />
           <Route exact path="/addcustomer" component={Auth(AddCustomer, true)}/>
+          <Route exact path="/bill" component={Auth(Bill, true)} />
          
         </Switch>
       </div>
